@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ["Baloo 2", "sans-serif"],
+        primary: ["Baloo Bhaijaan 2", "sans-serif"],
         secondary: ["Roboto", "sans-serif"],
       },
       colors: {
