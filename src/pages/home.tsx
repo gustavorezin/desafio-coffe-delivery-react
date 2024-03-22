@@ -5,8 +5,8 @@ import { Card } from "../components/card";
 
 export function Home() {
   return (
-    <div className="max-w-6xl m-auto">
-      <section className="flex items-center justify-between gap-28 h-[544px] mt-28">
+    <div className="max-w-6xl m-auto mt-28">
+      <section className="flex items-center justify-between gap-28 h-[544px]">
         <div className="flex flex-col gap-16">
           <div className="flex flex-col gap-5">
             <h1 className="text-5xl text-base-title font-extrabold font-primary leading-tight">

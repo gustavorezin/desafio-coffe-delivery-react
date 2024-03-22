@@ -1,19 +1,31 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
 import { useState } from "react";
 
+interface Coffee {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  price: number;
+  image: string;
+}
+
 interface CardProps {
-  coffee: {
-    id: string;
-    title: string;
-    description: string;
-    tags: string[];
-    price: number;
-    image: string;
-  };
+  coffee: Coffee;
 }
 
 export function Card({ coffee }: CardProps) {
-  const [quantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+
+  function incrementQuantity() {
+    setQuantity((state) => state + 1);
+  }
+
+  function decrementQuantity() {
+    if (quantity > 1) {
+      setQuantity((state) => state - 1);
+    }
+  }
 
   return (
     <div className="flex flex-col items-center w-64 px-6 pb-5 bg-base-card rounded-tl-md rounded-tr-[36px] rounded-bl-[36px] rounded-br-md">
@@ -43,12 +55,12 @@ export function Card({ coffee }: CardProps) {
 
         <div className="flex gap-2">
           <div className="flex items-center gap-2 p-2 rounded-md bg-base-button">
-            <button>
-              <Minus size={14} className="text-purple" />
+            <button onClick={decrementQuantity}>
+              <Minus size={14} weight="bold" className="text-purple" />
             </button>
             <span className="text-base-title">{quantity}</span>
-            <button>
-              <Plus size={14} className="text-purple" />
+            <button onClick={incrementQuantity}>
+              <Plus size={14} weight="bold" className="text-purple" />
             </button>
           </div>
           <button className="bg-purple-dark p-2 rounded-md">
